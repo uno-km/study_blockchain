@@ -32,7 +32,6 @@ contract test {
         uint b = 2;
         return a * b;
     }
-
 }
 
 
