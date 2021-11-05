@@ -8,6 +8,31 @@ contract test {
         uint    b = 2;
         return a * b;
     }
+
+    function arith2() public pure returns (uint) {
+        uint a = 10;
+        uint b = 2;
+        return a / b;
+    }
+
+    function arith3() public pure returns (uint) {
+        uint a = 10;
+        uint b = 2;
+        return a - b;
+    }
+
+    function arith4() public pure returns (uint) {
+        uint a = 10;
+        uint b = 2;
+        return a + b;
+    }
+
+    function arith5() public pure returns (uint) {
+        uint a = 10;
+        uint b = 2;
+        return a * b;
+    }
+
 }
 
 
