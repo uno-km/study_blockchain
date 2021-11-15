@@ -9,6 +9,7 @@ contract Storage3 {
         uint []memory d; // 메모리 저장
         uint []memory e = new uint[](10); // 메모리에 저장
         e[1] = 10;
+        b[0] = 2;
     }
 }
 
