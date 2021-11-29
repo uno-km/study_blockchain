@@ -9,6 +9,16 @@ contract Ifelse {
         } else {
             return false;
         }
+
+    }
+
+    function Test2(uint a, uint b) public pure returns(bool) {
+        if (a / b >= 1) {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
 
