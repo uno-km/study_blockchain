@@ -6,34 +6,33 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"name": "a",
-				"outputs": [
+				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"internalType": "string",
+						"name": "str",
+						"type": "string"
 					}
 				],
-				"stateMutability": "view",
+				"name": "getStr",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "read_a",
-				"outputs": [
+				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "ui",
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "read_b",
+				"name": "getUint",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -42,19 +41,6 @@
 					}
 				],
 				"stateMutability": "pure",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "read_c",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -71,7 +57,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Dev_in_REMIX/lec6.sol": "lec6"
+			"Dev_in_REMIX/lec7.sol": "lec6"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -85,12 +71,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Dev_in_REMIX/lec6.sol": {
-			"keccak256": "0xaf8a82230f650eaadb457000af436292f059f9d78cff83c331f635f2ad4f80df",
+		"Dev_in_REMIX/lec7.sol": {
+			"keccak256": "0x229d7c9ea8d885d384390489a11a17160df441441caa26ad6a39918f88c4b6e2",
 			"license": "GPL-30",
 			"urls": [
-				"bzz-raw://845ca4ac0d5c624e18be617afc9d8af6f28e3f327a798a8fa7e9a4dfc59453f9",
-				"dweb:/ipfs/QmVXLmkoiTTqeNKZdiqd9Y5iZfShQSLsFVdu1i3F9cYZgQ"
+				"bzz-raw://899d02c848597d2016d9129423effe7e50a9305b6240ba24a2ade1ac7713af14",
+				"dweb:/ipfs/Qme1PK8XYoJFzBeGC9i3mmxmtoSB6tuwFeC6bbUf3iccrY"
 			]
 		}
 	},
