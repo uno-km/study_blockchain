@@ -35,7 +35,7 @@ contract lec6{
     function getStr(string memory str) public pure returns(string memory){//리턴되는 것에 메모리라고 지정을 해줘야한다.
         return str;
     }
-    function getUint(uint256  ui) public pure returns(uint256){//근데 기본 데이터타입을 쓰면 메모리를 쓸수없다 쓰려하면 컴파일에러 생긴다..
+    function getUint(uint256 ui) public pure returns(uint256){//근데 기본 데이터타입을 쓰면 메모리를 쓸수없다 쓰려하면 컴파일에러 생긴다..
         return ui;
     }
     //여기서 잠깐~!!!! 왜 pure를 썻는가? 스토리지 값을 읽을 필요도 없고, 그리고 스토리지값을 읽어서 바꾸는것도 없고하는 함수내에서만 작업해서 지정함
