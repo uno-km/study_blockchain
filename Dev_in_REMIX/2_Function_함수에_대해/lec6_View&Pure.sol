@@ -11,7 +11,7 @@ contract lec6{
 	 * view : function 밖의 변수들을 읽를 수 있으나, 변경 불가능
 	 * pure : function 밖의 변수들을 읽지 못하고, 변경도 불가능
 	 * view/pure 둘다 명시 안할 때 : function 밖의 변수들을 읽어서, 변경을 해야함
-	 * 이정도로 간단하게 이해해보자
+	 * 이정도로 간단하게  이해해보자
 	 * 
 	 */   
      //1. view
