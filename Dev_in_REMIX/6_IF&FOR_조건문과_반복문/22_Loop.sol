@@ -64,13 +64,22 @@ contract loop{
         do while은 초기값이 와일문의 합당유무에 관계없이 do 내용을 먼저 실행하고 체크를 한다. 
     */
     function doWhileLoopEvents() public{
-        uint256 i  = 0;
+        uint256 i  = 10;
         do{
             emit cnttIdxNm(i, cntList[i]);
             i++;
         }
         while(i<cntList.length);
     }
+    /*
+        그러나 여기 do while문을 쓸때 안좋은 점은. 만약 초기값(i)를 10으로 그냥 정해버리면
+        cntList길이는 5까지인데 당연히 10은 5보다 크니, 조건(i<cntList.length)에 부합하지 않으나, 
+        맨마지막에 늦게해주니, 우선 do문의 함수는 실행이 되고, 그리고 그 10에서 i++에 의해 11로 변하고
+        이후 while조건에 판단이 되어진다. 
+        즉 그러니까 초기값이 맞지않아도 우선적으로 실행은 된다는 것이다. 
+        따라서 10을 입력하고 실행하면 오류는 동일하게 나지만 이미 한번정도는 연산이 된 상태로 오류를 뱉는것이다.
+
+    */
 }
 
 
