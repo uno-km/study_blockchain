@@ -102,7 +102,6 @@ contract Excute2{
             emit catchOnly("catch!!!","ErrorS!!");
             return (0,false);
         }
-
     }
     /*
         우선 배포를 해서 정상작동을 시키면
