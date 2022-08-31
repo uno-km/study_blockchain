@@ -72,4 +72,11 @@ Solidity
 
 - assert, revert, require 0.8.x 버전 이상 학습
 
-- try/catch (22.08.28 학습예정)
+- try/catch
+--
+[8] 모디파이어 & SPDX
+--
+- function return값 변수 명시
+
+- modifier 모디파이어(2022.09.01 학습예정)
+
