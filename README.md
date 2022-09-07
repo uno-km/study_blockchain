@@ -78,5 +78,13 @@ Solidity
 --
 - function return값 변수 명시
 
-- modifier 모디파이어(2022.09.01 학습예정)
+- modifier 모디파이어
 
+- SPDX 라이센스/주석
+--
+[9] 이더 보내기
+--
+- payable, msg.value, 이더를 보내는 3가지 함수
+
+- balance와 msg.sender(2022.09.08 학습예정)
+--
