@@ -13,6 +13,7 @@ Solidity
 -데이터 타입 학습
 
 -Ether/Gwei/wei 그리고 Gas에 대해
+
 --
 [2] Function 함수
 --
@@ -23,12 +24,14 @@ Solidity
 -view와 pure 학습
 
 -솔리디티의 String에 대해
+
 --
 [3] instance 인스턴스
 --
 -interence 정의
 
 -constructor 생성자의 의미
+
 --
 [4] 상속 & 이벤트
 --
@@ -45,6 +48,7 @@ Solidity
 -super에 대해서
 
 -상속의 순서
+
 --
 [5] 매핑 & 배열 & 구조체
 --
@@ -55,6 +59,7 @@ Solidity
 -Mapping과 Array 주의할 점
 
 -struct(구조체)
+
 --
 [6] 조건문과 반복문
 --
@@ -65,6 +70,7 @@ Solidity
 -break, cotinue 
 
 -linear search
+
 --
 [7] Error Handler 에러핸들러
 --
@@ -73,6 +79,7 @@ Solidity
 -assert, revert, require 0.8.x 버전 이상 학습
 
 -try/catch
+
 --
 [8] 모디파이어 & SPDX
 --
@@ -81,10 +88,12 @@ Solidity
 -modifier 모디파이어
 
 -SPDX 라이센스/주석
+
 --
 [9] 이더 보내기
 --
 -payable, msg.value, 이더를 보내는 3가지 함수
 
 -balance와 msg.sender(2022.09.08 학습예정)
+
 --
