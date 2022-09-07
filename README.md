@@ -26,65 +26,65 @@ Solidity
 --
 [3] instance 인스턴스
 --
-- interence 정의
+-interence 정의
 
-- constructor 생성자의 의미
+-constructor 생성자의 의미
 --
 [4] 상속 & 이벤트
 --
-- 솔리디티 상속의 정의
+-솔리디티 상속의 정의
 
-- overriding 오버라이딩
+-overriding 오버라이딩
 
-- 두개 이상 상속하기
+-두개 이상 상속하기
 
-- 솔리디티 event 정의
+-솔리디티 event 정의
 
-- 솔리디티 indexed 맛보기 및 정의
+-솔리디티 indexed 맛보기 및 정의
 
-- super에 대해서
+-super에 대해서
 
-- 상속의 순서
+-상속의 순서
 --
 [5] 매핑 & 배열 & 구조체
 --
-- Mapping 매핑
+-Mapping 매핑
 
-- Array 배열
+-Array 배열
 
-- Mapping과 Array 주의할 점
+-Mapping과 Array 주의할 점
 
-- struct(구조체)
+-struct(구조체)
 --
 [6] 조건문과 반복문
 --
-- if 조건문
+-if 조건문
 
-- loop(for, while, do-while) 
+-loop(for, while, do-while) 
 
-- break, cotinue 
+-break, cotinue 
 
-- linear search
+-linear search
 --
 [7] Error Handler 에러핸들러
 --
-- Assert, revert, require 0.4.22~0.72x 버전 학습
+-Assert, revert, require 0.4.22~0.72x 버전 학습
 
-- assert, revert, require 0.8.x 버전 이상 학습
+-assert, revert, require 0.8.x 버전 이상 학습
 
-- try/catch
+-try/catch
 --
 [8] 모디파이어 & SPDX
 --
-- function return값 변수 명시
+-function return값 변수 명시
 
-- modifier 모디파이어
+-modifier 모디파이어
 
-- SPDX 라이센스/주석
+-SPDX 라이센스/주석
 --
 [9] 이더 보내기
 --
-- payable, msg.value, 이더를 보내는 3가지 함수
+-payable, msg.value, 이더를 보내는 3가지 함수
 
-- balance와 msg.sender(2022.09.08 학습예정)
+-balance와 msg.sender(2022.09.08 학습예정)
 --
