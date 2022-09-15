@@ -29,7 +29,7 @@ contract add{
     function addNumber(uint256 num1, uint256 num2) public pure returns(uint256){
         return num1+num2;
     }
-    fallback() external{
+    fallback() external payable{
         emit justFallback("JustFallback is called");
     }
     receive() external payable {
@@ -67,8 +67,6 @@ contract caller{
         해당 () 괄호 안에 커텐션에 함수이름을 써주고 그 함수의 타입을 써주는 것이다.
         그리고 우리는 그 타입안에 들어갈 변수들을 , 를 이용해서 넣어준다. 
         이때 num1, num2 대신 하드코딩을 이용하거나 다른 작업을 통해서 해당 값을 넣어주어도 된다.
-
-    
     */
     function callMethod(address _contractAddr,uint256 num1, uint256 num2) public{
         (bool success, bytes memory outputFromCalledFunction) = _contractAddr.call(
@@ -77,4 +75,33 @@ contract caller{
         require(success,"failed to transfer ether");
         emit calledFunction(success,outputFromCalledFunction);
     }
+    /*
+        이런식으로 외부 스마트컨트랙트 함수를 가져와서 사용하는 것을 알 수 있디ㅏ.
+        우리는 기존의 사용하던건 기존의 success 불리언 값이었는데 , 함수의 값들은 byte 메모리 값이다.
+        바이트메모리 값은 무엇이냐면, addNumber가 작동하고 return  이 된 값이다.
+        리턴이 된 num1+ num2 이 바이트화 되어서 리턴이 되는것이다.
+        즉 다시말해서 우리가 이더를 보낼때, 바이트 메모리를 출력할 필요가 없기에 우리가 공란으로 놓았었다.
+        그리고 송금여부에 따라서 require 에러를 내느냐 안내느냐 여부를 따졌는데, 
+        함수의 리턴값을 받기위해 바이트 메모리를 쓴것이다.
+        따라서 해당 함수는
+        call 이 잘작동했는가 안했는가, 그리고 addNumber의 리턴값이 나온다.
+        그래서 해당 이벤트가 출력이된다.
+
+        그럼 abi 가 뭐길래 저렇게 작동시키는 것일까?
+        솔리디티 다큐멘테이션에 의하면 이더리움 환경 안에 의해서 스마트컨트랙의 상호작호작용의 표준방법이라고 설명하고있따.
+        데이터가 코드화 되어있고, 이 설명이 되어있다
+        그리고 abi 오브젝트 안에는 encodeWithSignature가 있따.
+        이 메서드를 이용해서 외부 스마트 컨트랙의 함수를 호출한다고 한다.
+
+        우리는 추가적으로 이더를 보내면서 스마트컨트랙에 없는 함수를 호출해보자.
+        그러면 애드의 함수엔 폴백이 실행될것이다.
+    */
+    function callMethodFallback(address _contractAddr) public payable {
+        (bool success, bytes memory outputFromCalledFunction) = _contractAddr.call{value:msg.value}(
+        abi.encodeWithSignature("Nothing()")
+        );
+        require(success,"failed to transfer ether");
+        emit calledFunction(success,outputFromCalledFunction);
+    }
+
 }
