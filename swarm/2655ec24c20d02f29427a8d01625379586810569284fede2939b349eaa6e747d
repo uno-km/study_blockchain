@@ -1,0 +1,85 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "num",
+						"type": "uint256"
+					}
+				],
+				"name": "info",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "num",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "plus",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Dev_in_REMIX/9_Sending_Ether/37_call&delegateCall.sol": "add"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Dev_in_REMIX/9_Sending_Ether/37_call&delegateCall.sol": {
+			"keccak256": "0x668e635d955843cf999fc5bfc6f9ee8c6fe3e9f76af1e7906afb08cf0eb3a51a",
+			"license": "GPL-30",
+			"urls": [
+				"bzz-raw://4fb343af095115980d8f5bf085b6dbc0c87e30be43f8e9f571173be55dead35f",
+				"dweb:/ipfs/QmeQP8s26Wa7gHxHaCmhiQP6C8noWk6EvK9YQfKKms5fWR"
+			]
+		}
+	},
+	"version": 1
+}
