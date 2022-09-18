@@ -74,4 +74,3 @@ contract EnumEx{
         emit carCurrentStatus(carStatus, uint256(carStatus));
     }
 }
-
