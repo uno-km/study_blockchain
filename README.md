@@ -86,4 +86,22 @@ Solidity
 --
 - payable, msg.value, 이더를 보내는 3가지 함수
 
-- balance와 msg.sender(2022.09.08 학습예정)
+- balance와 msg.sender
+
+- payable2 생성자 적용시, msg.sender owner 적용
+
+- fallback / receive 함수
+
+- call 함수
+
+- call Vs delegate call
+
+[10] Enum & 인터페이스 & 라이브러리 & 임포트
+--
+- Enum 학습
+
+- Interface 인터페이스
+
+- Library 라이브러리
+
+- Import 임폴트 (2022.09.22 학습예정)
