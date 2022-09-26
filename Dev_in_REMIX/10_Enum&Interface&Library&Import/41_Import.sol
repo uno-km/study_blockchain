@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-30
-pragma solidity >= 0.7.0 < 0.9.0; 
+pragma solidity >= 0.6.0 < 0.8.0; 
 /*
     Import에 대해 공부
     우리가 그동안 솔리디티를 공부하면서 한 솔리디티 파일안에 contract를 정의를 했다.
