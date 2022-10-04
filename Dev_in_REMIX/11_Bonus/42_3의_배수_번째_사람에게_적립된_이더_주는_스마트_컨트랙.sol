@@ -13,3 +13,12 @@ pragma solidity >= 0.7.0 < 0.9.0;
     서번째 사람이다. 머니박스에서 3의 배수인것을 계산하고 참값이 나왔으므로 이더리움을 주게된다.
     그리고 머니박스의 밸런스는 줄어들게된다.
 */
+contract MneyBox{
+    event whoPaid(address indexed sender, uint256 payment);
+    address owner;
+    mapping (uint256 => mapping(address => bool)) paidmemberList;
+    uint256 round =1;
+    constructor(){
+        
+    }
+}
