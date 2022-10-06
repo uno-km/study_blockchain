@@ -60,6 +60,20 @@ contract MneyBox
         등등등
         그래서 각 라운드마다 paidmemberList 가 존재하는것이다.
         따라서 A라는 사람이 1라운드에 참여를 했어도, 2라운드, 3라운드에도 참석이 가능하게 되는것이다.
+        죽 "주소" 라는 키값이 있고, 불린타입의 밸류값이 있다.
+
+        만약에 uint256에 1라운드를 매핑을 해놓고 A라는 주소를 넣으면, true가 된다. B도, C도 다 true가 될것이다.
+        만약 우리가 2라는 키를 넣는다면 당연히 다른 페이드 멤버리스트의 밸류값을 반환하게 된다.
+        왜냐하면 ABC가 트루일때 2라운드 키값 2에서는 ERD만 트루가 될것이다. ABC는 false란 얘기이다.
+        더 나아가서 키값 3을 넣는다고 하면은 ARB만 트루가 될것이다.
+        즉 이렇게 라운드마다 다르니까. 참여한 사람들의 주소들을 따로 저장을 한다음에 이 게임이 끝나고 다 false로 바꿔줄 필요가 없다.
+        새로시작한다.
+        그래서 3라운드의 B라는 사람을 통해서 끝나게 된다면 4라운드에서 모든유저는 다 false가 되어있을 것이다.
+        그래서 우리는 키값 - 라운드를 넣어주고 각사람들의 주소, 그리고 true인지 false인지 보고 paidMemberList에 기록이 되는지 알수있따.
+
+        그래서 우리는 round라는 변수가 정의되어있고, checkRound를 보면 모든사람들이 현재 이게임이 몇게임인지 알 수있다.
+
+
     */
     mapping (uint256 => mapping(address => bool)) paidmemberList;
     uint256 round =1;
@@ -68,18 +82,42 @@ contract MneyBox
     {
         owner = msg.sender;
     }
+    /*
+        falback함수를 보면
+        receive는 payable인것을 알 수 있다.
+        만약 우리가 A라는 유저가 스마트컨트랙에 1이더를 보낸다고 한다면
+        receive 폴백함수가 돌면서 이 require가 작동을 할 것이다. 당연히 이 msg.value은 1이더여야 한다.
+        왜냐하면 우리의 특징은 1이더만 내는 것이기 떄문이다.
+        그리고 2번쨰 조건은 이 중복참여인데,  paidmemberList[round]의 round라는 키값을 넣어주고
+        그다음에 key값은 어드레스값 : msg.sender (리시브에게 돈을 준사람)이 돈을 안주었으니 false여야지 
+        스마트컨트랙을 처음 1개 이더를 주는 사람이여야지 기록하게된다.
+        그래서 paidmemberList[round][msg.sender] = true로 변환하게 된다.
+        그리고 나서 이벤트가 출력하게 된다. - 이어서 계속
+    */
     receive() external payable
     {
         require(msg.value == 1 ether, "Must be 1 ether.");
         require(paidmemberList[round][msg.sender]==false,"Must be a new player in each game.");
+
+        paidmemberList[round][msg.sender]=true;
+
         emit whoPaid(msg.sender,msg.value);
+        /*
+            여기에서 이 스마트컨트랙에 balance를 체크를 한다.그래서 스마트컨트랙의 밸런스를 체크하게 되는데
+            3이더는 call함수를 이용해서 스마트컨트랙이 가지고 있는 모든 이더를 해당 주소로 전달하는것을 알 수 있다.
+            이 말은 즉슨 3번째 사람인것을 알 수 가있다.
+            왜냐하면 한사람당 1이더를 주니까. 적립된 금액이 3이더가 된다면 그사람이 3번째 사람이기 때문이다.
+            그 3번째 사람에게 스마트컨트랙이 가지고 있는 모든 이더를 돌려주는 것을 알 수 이따.
+            그래서 msg.sender 가 될것이다.
+        */
         if(address(this).balance == 3 ether)
         {
-            (bool sent, ) = payable(msg.sender).call
+            (bool sent, ) = payable/*이더가 오고가니 payable이 맞다.*/(msg.sender/*3번째로 스마트컨트랙에 돈을 준사람*/).call
             {
                 value:address(this).balance
             }("");
             require(sent, "Faided to pay");
+            /*이렇게 실패가 없이 보내지게 된다면 round가 올라간다.*/
             round++;
         }
     }
@@ -87,10 +125,19 @@ contract MneyBox
     {
         return round;
     }
-
+/*
+    여기 checkValue()를 보면, owner만, 즉 스마트 컨트랙을 배포한 사람만 이 함수를 이용 할수있다.
+    만약 스마트컨트랙 배포자가 이 컨트랙의 밸런스, 적립된 이더를 본다고 한다면, 이렇게 해주어야 한다.
+*/
     function checkValue() public view returns(uint256)
     {
         require(owner==msg.sender,"Only Onwer can check the value");
+        /*
+            여기의 this는 스마트 컨트랙을 나타내는 것이고, balance를 보기위해서 스마트컨트랙을 주소화 해주어야 한다.
+            그래서 return(this) 를 통해 주소화를 하고 리턴을 시켜준다. 
+            그리고 balance를 통해 이 스마트 컨트랙이 얼마가 들었는지 알 수 있따.
+            즉 배포자만 이 스마트컨트랙의 잔액을 볼 수 있따.
+        */
         return address(this).balance;
     }
 }
