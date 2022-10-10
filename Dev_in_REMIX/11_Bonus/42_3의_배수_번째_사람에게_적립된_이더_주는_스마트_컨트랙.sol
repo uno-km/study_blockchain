@@ -141,3 +141,6 @@ contract MneyBox
         return address(this).balance;
     }
 }
+/*
+    이후로는 메타마스크 연동을 통해 학습해보도록 해보자.
+*/
